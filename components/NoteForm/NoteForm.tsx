@@ -46,7 +46,7 @@ export default function NoteForm() {
   });
 
   const handleSubmit = (formData: FormData) => {
-    const values = Object.fromEntries(formData) as Values;
+    const values = Object.fromEntries(formData) as unknown as Values;
     mutation.mutate(values, {
       onSuccess: () => {
         alert("Success, you created a new note !");

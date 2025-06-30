@@ -1,3 +1,4 @@
+"use client";
 import { useQueryClient, useMutation } from "@tanstack/react-query";
 import { Formik, Form, Field, ErrorMessage, type FormikHelpers } from "formik";
 import * as Yup from "yup";
@@ -38,11 +39,7 @@ const noteShema = Yup.object().shape({
     .required("Tag is required"),
 });
 
-interface Props {
-  onClose: () => void;
-}
-
-export default function NoteForm({ onClose }: Props) {
+export default function NoteForm() {
   const queryClient = useQueryClient();
 
   const mutation = useMutation({
@@ -55,8 +52,8 @@ export default function NoteForm({ onClose }: Props) {
   const handleSubmit = (values: Values, action: FormikHelpers<Values>) => {
     mutation.mutate(values, {
       onSuccess: () => {
+        alert("Success, you created a new note !");
         action.resetForm();
-        // onClose();
       },
     });
   };
@@ -99,9 +96,6 @@ export default function NoteForm({ onClose }: Props) {
         </div>
 
         <div className={css.actions}>
-          <button onClick={onClose} className={css.cancelButton}>
-            Close
-          </button>
           <button type="submit" className={css.submitButton}>
             Create note
           </button>

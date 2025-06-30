@@ -14,6 +14,8 @@ type Props = {
   params: Promise<{ slug: string[] }>;
 };
 
+// SEO CONFIG
+
 export async function generateMetadata() {
   return {
     title: `NoteHub | Notes`,

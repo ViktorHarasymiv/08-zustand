@@ -12,6 +12,8 @@ type Props = {
   params: Promise<{ id: string }>;
 };
 
+// SEO CONFIG
+
 export async function generateMetadata({ params }: Props) {
   const { id } = await params;
   const note = await fetchNoteById(Number(id));

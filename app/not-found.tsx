@@ -1,8 +1,15 @@
 "use client";
 
+import { Metadata } from "next";
+
 import "./globals.css";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+
+export const metadata: Metadata = {
+  title: "Not found page",
+  description: "Error 404",
+};
 
 const NotFound = () => {
   const router = useRouter();

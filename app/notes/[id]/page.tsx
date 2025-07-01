@@ -3,6 +3,7 @@ import {
   HydrationBoundary,
   dehydrate,
 } from "@tanstack/react-query";
+import type { Metadata } from "next";
 
 import NoteDetailsClient from "./NoteDetails.client";
 
@@ -14,7 +15,7 @@ type Props = {
 
 // SEO CONFIG
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const note = await fetchNoteById(Number(id));
 

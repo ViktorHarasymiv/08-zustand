@@ -16,14 +16,16 @@ type Props = {
 
 // SEO CONFIG
 
-export async function generateMetadata() {
+export async function generateMetadata({ params }: Props) {
+  const category = await params;
+
   return {
     title: `NoteHub | Notes`,
     description: "NoteHub list",
     openGraph: {
       title: `NoteHub | Notes`,
       description: "NoteHub list",
-      url: `https://notehub.com/notes/`,
+      url: `https://notehub.com/notes/${category.slug[0]}`,
       siteName: "NoteHub",
       images: [
         {

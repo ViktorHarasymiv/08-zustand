@@ -20,11 +20,11 @@ export async function generateMetadata({ params }: Props) {
   const category = await params;
 
   return {
-    title: `NoteHub | Notes`,
-    description: "NoteHub list",
+    title: `NoteHub | ${category.slug[0]}`,
+    description: "NoteHub | Category",
     openGraph: {
-      title: `NoteHub | Notes`,
-      description: "NoteHub list",
+      title: `NoteHub | ${category.slug[0]}`,
+      description: "NoteHub | Category",
       url: `https://notehub.com/notes/${category.slug[0]}`,
       siteName: "NoteHub",
       images: [

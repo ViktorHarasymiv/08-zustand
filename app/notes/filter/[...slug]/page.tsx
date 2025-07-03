@@ -1,3 +1,5 @@
+import { Metadata } from "next";
+
 import NotesClient from "./Notes.client";
 
 import css from "./NotesPage.module.css";
@@ -16,7 +18,7 @@ type Props = {
 
 // SEO CONFIG
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const category = await params;
 
   return {
